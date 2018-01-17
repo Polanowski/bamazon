@@ -33,12 +33,12 @@ function displayAll() {
         }
         //log the completed table to console
         console.log(theDisplayTable.toString());
-        inquireForPurchase();
+        inquirePurchase();
     });
 
 
 }; //end displayAll
-function inquireForPurchase() {
+function inquirePurchase() {
     //get item ID and desired quantity from user. Pass to purchase from Database
     inquirer.prompt([
 
@@ -59,7 +59,7 @@ function inquireForPurchase() {
         purchaseFromDatabase(IDDesired, quantityDesired);
     });
 
-}; //end inquireForPurchase
+}; //end inquirePurchase
 
 function purchaseFromDatabase(ID, quantityNeeded) {
     //check quantity of desired purchase. Minus quantity of the itemID from database if possible. Else inform user "Quantity desired not in stock" 
@@ -78,7 +78,7 @@ function purchaseFromDatabase(ID, quantityNeeded) {
         } else {
             console.log("Our apologies. We don't have enough " + response[0].ProductName + " to fulfill your order.");
         };
-        displayAll();//recursive shopping is best shopping! Shop till you drop!
+        displayAll();
     });
 
 }; //end purchaseFromDatabase
